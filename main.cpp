@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "cTamGiac.h"
+#include "cDaGiac.h"
 #include "cDiem.h"
 #define Pi 3.14159265358979323846
 using namespace std;
@@ -9,20 +9,18 @@ bool KiemTraFloat(string s);
 
 int main()
 {
-    cTamGiac ABC;
-    ABC.Nhap();
+    cDaGiac DG;
+    DG.Nhap();
 
-    cout<<"Tam giac vua nhap:\n";
-    ABC.Xuat();
+    cout << "\nDa giac vua nhap:\n";
+    DG.Xuat();
 
-    ABC.KiemTraLoaiTamGiac();
-    cout<<'\n';
+    DG.KiemTraLoaiDaGiac();
 
-    float ChuViABC=ABC.ChuVi();
-    cout<<"Chu vi tam giac: "<<ChuViABC;
-    cout<<"\n";
-    float DienTichABC=ABC.DienTich();
-    cout<<"Dien tich tam giac: "<<DienTichABC;
+    float ChuViDG = DG.ChuVi();
+    cout << "Chu vi da giac: " << ChuViDG << "\n";
+    float DienTichDG = DG.DienTich();
+    cout << "Dien tich da giac: " << DienTichDG << "\n";
     cout<<"\n";
 
     string Tdx, Tdy;
@@ -36,27 +34,25 @@ int main()
     while (!KiemTraFloat(Tdy)) { cout << "Vui long nhap lai dy: "; cin >> Tdy; }
     float dy = stof(Tdy);
 
-    cTamGiac ABCTinhTien = ABC.TinhTien(dx,dy);
-    cout << "Tam giac sau khi tinh tien:\n";
-    ABCTinhTien.Xuat();
+    cDaGiac DGTinhTien = DG.TinhTien(dx, dy);
+    cout << "Da giac sau khi tinh tien:\n";
+    DGTinhTien.Xuat();
 
     cDiem M;
-    cout<<"Nhap tam quay M (x,y):\n";
+    cout << "\nNhap tam quay M:\n";
     M.Nhap();
     int chon;
     while (true){
-        cout<<"Chon goc quay:\n[1] de chon Do\n[2] de chon Radian\n";
-        cin>>chon;
-
+        cout << "Chon goc quay:\n[1] de chon Do\n[2] de chon Radian\n";
+        cin >> chon;
         if (cin.fail()) {
             cin.clear();
             cin.ignore(10000, '\n');
-            cout<<"Loi! Vui long chi nhap so 1 hoac 2.\n\n";
+            cout << "Loi! Vui long chi nhap so 1 hoac 2.\n\n";
             continue;
         }
-
-        if (chon==1 || chon==2) break;
-        cout<<"Nhap sai. Vui long nhap lai.\n\n";
+        if (chon == 1 || chon == 2) break;
+        cout << "Nhap sai. Vui long nhap lai.\n\n";
     }
 
     string Tgoc;
@@ -74,9 +70,9 @@ int main()
         goc = stof(Tgoc);
     }
 
-    cTamGiac ABCQuay = ABC.Quay(M, goc);
-    cout << "Tam giac sau khi quay:\n";
-    ABCQuay.Xuat();
+    cDaGiac DGQuay = DG.Quay(M, goc);
+    cout << "Da giac sau khi quay:\n";
+    DGQuay.Xuat();
 
     cDiem TamThuPhong;
     cout << "\nNhap tam thu phong (vi tu):\n";
@@ -88,9 +84,9 @@ int main()
     while (!KiemTraFloat(Tk_phongto)) { cout << "Vui long nhap lai he so: "; cin >> Tk_phongto; }
     float k_phongto = stof(Tk_phongto);
 
-    cTamGiac ABCPhongTo = ABC.PhongTo(TamThuPhong, k_phongto);
-    cout << "Tam giac sau khi phong to:\n";
-    ABCPhongTo.Xuat();
+    cDaGiac DGPhongTo = DG.PhongTo(TamThuPhong, k_phongto);
+    cout << "Da giac sau khi phong to:\n";
+    DGPhongTo.Xuat();
 
     string Tk_thunho;
     cout << "\nNhap he so thu nho: ";
@@ -98,9 +94,9 @@ int main()
     while (!KiemTraFloat(Tk_thunho)) { cout << "Vui long nhap lai he so: "; cin >> Tk_thunho; }
     float k_thunho = stof(Tk_thunho);
 
-    cTamGiac ABCThuNho = ABC.ThuNho(TamThuPhong, k_thunho);
-    cout << "Tam giac sau khi thu nho:\n";
-    ABCThuNho.Xuat();
+    cDaGiac DGThuNho = DG.ThuNho(TamThuPhong, k_thunho);
+    cout << "Da giac sau khi thu nho:\n";
+    DGThuNho.Xuat();
 
     return 0;
 }

@@ -4,6 +4,14 @@
 #include <cmath>
 using namespace std;
 
+float cDiem::getX(){
+    return x;
+}
+
+float cDiem::getY(){
+    return y;
+}
+
 //Kiem tra chuoi co phai so thuc khong
 bool KiemTraFloat(string s){
     if (s.empty()) return false;

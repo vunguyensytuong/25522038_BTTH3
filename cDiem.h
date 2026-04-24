@@ -7,6 +7,8 @@ private:
     float x, y;
 
 public:
+    float getX();
+    float getY();
     void Nhap();
     void Xuat();
     void TinhTien(float dx, float dy);
